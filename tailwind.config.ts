@@ -22,18 +22,18 @@ const config: Config = {
     },
     animation: {
       'x-scrolling': 'slider 40s linear infinite',
-      fill1: 'fill1 2s linear',
-      menuOpen: 'menu 5s linear',
+      menuContentOpen: 'menuContentOpen 0.5s linear',
+      menuOpen: 'menuOpen 5s linear',
     },
     keyframes: {
       slider: {
         '100%': { transform: 'translateX(calc(-150px * 17))' },
       },
-      menu: {
+      menuOpen: {
         '0%': { height: '0%' },
         '100%': { height: '100%' },
       },
-      fill1: {
+      menuContentOpen: {
         '0%': { transform: 'scaleY(0)' },
         '100%': { transform: 'scaleY(1)' },
       },

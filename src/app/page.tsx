@@ -5,15 +5,29 @@ import useTypewriter from '@/hooks/useTypeWriter';
 import { IoArrowDownCircleOutline, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 import Skills from './components/Skills';
 import MenuOption from './components/MenuOption';
+import { ReactElement, useState } from 'react';
+import MenuContentContainer from './components/MenuContentContainer';
+import AboutMe from './components/AboutMe';
 
 export default function Home() {
+  const [openedMenu, setOpenMenu] = useState(null as any);
   const { displayText, playEnd } = useTypewriter("I'm Peter Yang", 100);
 
   const menuContainerStyle = `absolute w-[250px] top-1/4 overflow-hidden animate-menuOpen  ${
     playEnd ? 'block' : 'hidden'
   }`;
 
+  const contentMap: Record<string, ReactElement> = {
+    'About Me': <AboutMe />,
+    'Work experience': <div>123</div>,
+  };
+
   const handleMenuClick = (option: string) => {
+    if (option in contentMap) {
+      setOpenMenu(option);
+    } else {
+      setOpenMenu(null);
+    }
     console.log(option);
   };
 
@@ -49,35 +63,15 @@ export default function Home() {
             <IoArrowDownCircleOutline size={20} />
           </div>
         </div>
-        <div className=" m-10 flex justify-around relative ">
-          <div className="animate-fill1 rounded-xl border-2 border-c2 p-4 bg-bluedark/[.8] w-3/5 ">
-            <p className="text-xl sm:text-2xl font-medium text-c2 border-l-2 border-c4 pl-4 mb-2">
-              About Me
-            </p>
-            <p className="text-sm sm:text-xl text-c2">
-              Dedicated to javascript with 6 years of experience in which I have acquired a wide
-              range of technical skills ranging from the latest JavaScript frameworks to software
-              architecture. Have experience with building products that have over 100,000 users. I
-              am also familiar with the technologies related to mechanical and electrical, including
-              the BLE communication between the software app and the real-world devices, having the
-              ability to integrate software and hardware from a comprehensive perspective.
-            </p>
-          </div>
-          <div className="rounded-xl border-2 border-c2 p-4 bg-bluedark/[.8] ">
-            <p className="text-xl sm:text-2xl font-medium text-c2 border-l-2 border-c4 pl-4 mb-2">
-              contact details
-            </p>
-            <ul className="text-sm sm:text-xl text-c2">
-              <li>Peter yang </li>
-              <li>Taipei, Taiwan </li>
-              <li>+886 961296288</li>
-              <li>weiyang2016@gmail.com</li>
-            </ul>
-          </div>
-        </div>
-        <Skills />
-        <div className="h-[500px] bg-green-200 w-[200px]"></div>
-        <div className="h-[500px] bg-green-100 w-[200px]"></div>
+        {openedMenu && (
+          <MenuContentContainer
+            key={openedMenu}
+            content={contentMap[openedMenu]}
+            onClose={() => {
+              setOpenMenu(null);
+            }}
+          />
+        )}
       </div>
     </div>
   );
