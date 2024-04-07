@@ -16,7 +16,7 @@ function MenuOption({ optionLabel, onClick }: TMenuOptionProps) {
         onClick(optionLabel);
       }}
     >
-      <div className={menuOptionStyle}>{optionLabel}</div>
+      <div className="menuOption">{optionLabel}</div>
     </div>
   );
 }

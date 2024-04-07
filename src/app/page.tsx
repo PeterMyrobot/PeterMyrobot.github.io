@@ -2,8 +2,7 @@
 
 import StarCanvas from './components/StarCanvas';
 import useTypewriter from '@/hooks/useTypeWriter';
-import { IoArrowDownCircleOutline, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
-import Skills from './components/Skills';
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 import MenuOption from './components/MenuOption';
 import { ReactElement, useState } from 'react';
 import MenuContentContainer from './components/MenuContentContainer';
@@ -12,10 +11,6 @@ import AboutMe from './components/AboutMe';
 export default function Home() {
   const [openedMenu, setOpenMenu] = useState(null as any);
   const { displayText, playEnd } = useTypewriter("I'm Peter Yang", 100);
-
-  const menuContainerStyle = `absolute w-[250px] top-1/4 overflow-hidden animate-menuOpen  ${
-    playEnd ? 'block' : 'hidden'
-  }`;
 
   const contentMap: Record<string, ReactElement> = {
     'About Me': <AboutMe />,
@@ -37,10 +32,12 @@ export default function Home() {
     <div className="relative flex flex-col bg-black justify-center h-screen items-center  ">
       <StarCanvas />
       <div className="w-full z-10 overflow-scroll no-scrollbar relative ">
-        <div className={menuContainerStyle}>
-          {menuOption.map((option) => {
-            return <MenuOption key={option} optionLabel={option} onClick={handleMenuClick} />;
-          })}
+        <div className="absolute justify-around animate-menuOpen overflow-x-hidden">
+          <div className="flex justify-around w-screen ">
+            {menuOption.map((option) => {
+              return <MenuOption key={option} optionLabel={option} onClick={handleMenuClick} />;
+            })}
+          </div>
         </div>
         <div className="h-screen flex  flex-col justify-center items-center">
           <div>
@@ -58,9 +55,6 @@ export default function Home() {
             <a href="https://www.linkedin.com/in/weitseyang" target="_blank">
               <IoLogoLinkedin size={30} color="white" />
             </a>
-          </div>
-          <div className=" absolute bottom-5">
-            <IoArrowDownCircleOutline size={20} />
           </div>
         </div>
         {openedMenu && (

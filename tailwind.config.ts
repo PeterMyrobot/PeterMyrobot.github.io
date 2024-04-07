@@ -7,13 +7,8 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
     colors: {
+      black: '#000000',
       bluedark: '#031926',
       c1: '#49586e',
       c2: '#FBFBFB',
@@ -30,8 +25,8 @@ const config: Config = {
         '100%': { transform: 'translateX(calc(-150px * 17))' },
       },
       menuOpen: {
-        '0%': { height: '0%' },
-        '100%': { height: '100%' },
+        '0%': { width: '0%' },
+        '100%': { width: '100%' },
       },
       menuContentOpen: {
         '0%': { transform: 'scaleY(0)' },
