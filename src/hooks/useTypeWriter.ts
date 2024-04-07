@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 const useTypewriter = (text: string, speed = 50) => {
   const [displayText, setDisplayText] = useState('');
+  const [playEnd, setPlayEnd] = useState(false);
 
   useEffect(() => {
     let i = 0;
@@ -11,6 +12,7 @@ const useTypewriter = (text: string, speed = 50) => {
         setDisplayText(() => text.slice(0, i));
         i++;
       } else {
+        setPlayEnd(true);
         clearInterval(typingInterval);
       }
     }, speed);
@@ -20,7 +22,7 @@ const useTypewriter = (text: string, speed = 50) => {
     };
   }, [text, speed]);
 
-  return displayText;
+  return { displayText, playEnd };
 };
 
 export default useTypewriter;

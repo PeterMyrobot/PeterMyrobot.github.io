@@ -1,25 +1,39 @@
 'use client';
-import Image from 'next/image';
 
 import StarCanvas from './components/StarCanvas';
 import useTypewriter from '@/hooks/useTypeWriter';
 import { IoArrowDownCircleOutline, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
-import Me from '../../public/images/me.jpg';
 import Skills from './components/Skills';
+import MenuOption from './components/MenuOption';
 
 export default function Home() {
-  const typingTitle = useTypewriter("I'm Peter Yang", 100);
+  const { displayText, playEnd } = useTypewriter("I'm Peter Yang", 100);
+
+  const menuContainerStyle = `absolute w-[250px] top-1/4 overflow-hidden animate-menuOpen  ${
+    playEnd ? 'block' : 'hidden'
+  }`;
+
+  const handleMenuClick = (option: string) => {
+    console.log(option);
+  };
+
+  const menuOption = ['About Me', 'Work experience', 'Skills', 'Projects', 'Contact me'];
 
   return (
-    <div className="relative flex flex-col bg-black justify-center h-screen items-center ">
+    <div className="relative flex flex-col bg-black justify-center h-screen items-center  ">
       <StarCanvas />
-      <div className="w-full z-10 overflow-scroll no-scrollbar">
-        <div className="h-screen flex  flex-col justify-center items-center  ">
+      <div className="w-full z-10 overflow-scroll no-scrollbar relative ">
+        <div className={menuContainerStyle}>
+          {menuOption.map((option) => {
+            return <MenuOption key={option} optionLabel={option} onClick={handleMenuClick} />;
+          })}
+        </div>
+        <div className="h-screen flex  flex-col justify-center items-center">
           <div>
             <h1 className="text-2xl sm:text-4xl md:text-6xl text-c2 text-center font-bold bg-bluedark/[.8]">
-              {typingTitle}
+              {displayText}
             </h1>
-            <p className="text-white text-sm sm:text-base mt-4 text-center bg-bluedark/[.8]">
+            <p className="text-white text-sm sm:text-base mt-4 text-center">
               Software Engineer base in Taiwan, leaning, coding, and have fun!
             </p>
           </div>
@@ -35,8 +49,8 @@ export default function Home() {
             <IoArrowDownCircleOutline size={20} />
           </div>
         </div>
-        <div className=" m-10 flex justify-around ">
-          <div className="rounded-xl border-2 border-c2 p-4 bg-bluedark/[.8] w-3/5 ">
+        <div className=" m-10 flex justify-around relative ">
+          <div className="animate-fill1 rounded-xl border-2 border-c2 p-4 bg-bluedark/[.8] w-3/5 ">
             <p className="text-xl sm:text-2xl font-medium text-c2 border-l-2 border-c4 pl-4 mb-2">
               About Me
             </p>

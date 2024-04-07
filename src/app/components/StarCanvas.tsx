@@ -1,5 +1,4 @@
-'use client';
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const EYES_TO_SCREEN = 50;
 const FLY_SPEED = 0.02;
@@ -94,11 +93,11 @@ function StarCanvas() {
     drawStars();
   };
 
-  const tick = useCallback((time: number) => {
+  const tick = (time: number) => {
     if (!canvasRef) return;
     renderFrame(time);
     requestIdRef.current = requestAnimationFrame(tick);
-  }, []);
+  };
 
   useEffect(() => {
     handleResize();
@@ -112,7 +111,7 @@ function StarCanvas() {
     return () => {
       cancelAnimationFrame(requestIdRef.current);
     };
-  }, [tick]);
+  }, []);
   return <canvas className="absolute w-full h-screen" ref={canvasRef} />;
 }
 
