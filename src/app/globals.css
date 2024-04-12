@@ -29,7 +29,7 @@ body {
   padding: 8px 12px;
   margin-top: 12px;
   cursor: pointer;
-  transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 300ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .menuOption::before,
@@ -50,7 +50,7 @@ body {
   transition-delay: 0s;
 }
 .menuOption:after {
-  transition-delay: 0.35s;
+  transition-delay: 0.2s;
   right: 0;
 }
 
@@ -61,14 +61,14 @@ body {
 
 .menuOption:hover {
   color: #031926;
-  transition-delay: 0.5s;
+  transition-delay: 0.3s;
 }
 .menuOption:before {
   transition-delay: 0s;
 }
 .menuOption:hover:after {
   background: #fbfbfb;
-  transition-delay: 0.35s;
+  transition-delay: 0.2s;
 }
 
 .lightBorder {
@@ -99,9 +99,12 @@ body {
   5% {
     clip-path: inset(0 0 95% 0);
   }
+  7% {
+    clip-path: inset(0 95% 80% 0);
+  }
   22%,
   100% {
-    clip-path: inset(1% 1% 1% 1%);
+    clip-path: inset(100% 95% 0% 1%);
   }
 }
 

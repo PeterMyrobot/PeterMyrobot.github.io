@@ -18,15 +18,15 @@ const config: Config = {
     animation: {
       'x-scrolling': 'slider 40s linear infinite',
       menuContentOpen: 'menuContentOpen 0.5s linear',
-      menuOpen: 'menuOpen 5s linear',
+      menuOpen: 'menuOpen 2s linear',
     },
     keyframes: {
       slider: {
         '100%': { transform: 'translateX(calc(-150px * 17))' },
       },
       menuOpen: {
-        '0%': { width: '0%' },
-        '100%': { width: '100%' },
+        '0%': { height: '0%' },
+        '100%': { height: '46px' },
       },
       menuContentOpen: {
         '0%': { transform: 'scaleY(0)' },
