@@ -41,23 +41,21 @@ function Skills() {
   const skillList = skills.map((skill) => (
     <div
       key={skill.label}
-      className="flex flex-col items-center justify-center w-[30px] h-[30px] md:w-[60px] md:h-[60px] border-2 border-c2 rounded-md mx-[10px] bg-c2/25"
+      className="flex flex-col items-center justify-center w-[80px] h-[60px]  mx-[10px] "
     >
       <skill.icon size={50} color="#FBFBFB" />
-      <p className="text-c2 mt-2 hidden md:block">{skill.label}</p>
+      <p className="text-xs text-c2 mt-2 hidden md:block">{skill.label}</p>
     </div>
   ));
   return (
-    <div className="bg-bluedark relative h-[60px] my-4 md:h-[130px] md:my-8 w-4/5">
-      <div className=" absolute top-0 left-0 bg-gradient-to-r from-bluedark w-40 z-10 h-full"></div>
-      <div className="flex flex-row overflow-hidden relative h-[30px] md:h-[130px]">
+    <div className="relative h-[60px] my-4">
+      <div className="flex flex-row overflow-hidden relative h-[60px] md:h-[130px]">
         <div className="animate-x-scrolling absolute flex flex-row ">
           {skillList}
           {skillList}
           {skillList}
         </div>
       </div>
-      <div className="absolute top-0 right-0 bg-gradient-to-l from-bluedark w-40 z-10 h-full"></div>
     </div>
   );
 }
