@@ -8,7 +8,6 @@ import { ReactElement, useState } from 'react';
 import MenuContentContainer from './components/MenuContentContainer';
 import AboutMe from './components/AboutMe';
 import WorkExperience from './components/WorkExperience';
-import ContactMe from './components/ContactMe';
 
 export default function Home() {
   const [openedMenu, setOpenMenu] = useState(null as any);
@@ -17,7 +16,6 @@ export default function Home() {
   const contentMap: Record<string, ReactElement> = {
     'About Me': <AboutMe />,
     'Work Experience': <WorkExperience />,
-    'Contact Me': <ContactMe />,
   };
 
   const handleMenuClick = (option: string) => {
@@ -29,7 +27,7 @@ export default function Home() {
     console.log(option);
   };
 
-  const menuOption = ['About Me', 'Work Experience', 'Projects', 'Contact Me'];
+  const menuOption = ['About Me', 'Work Experience'];
 
   return (
     <div className="relative flex flex-col bg-black justify-center h-screen items-center  ">

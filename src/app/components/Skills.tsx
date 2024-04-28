@@ -49,7 +49,7 @@ function Skills() {
   ));
   return (
     <div className="relative h-[60px] my-4">
-      <div className="flex flex-row overflow-hidden relative h-[60px] md:h-[130px]">
+      <div className="flex flex-row overflow-hidden relative h-[60px] ">
         <div className="animate-x-scrolling absolute flex flex-row ">
           {skillList}
           {skillList}

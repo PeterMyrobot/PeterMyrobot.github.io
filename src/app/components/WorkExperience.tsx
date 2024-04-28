@@ -2,6 +2,32 @@ import { IoEllipseOutline, IoEarthOutline } from 'react-icons/io5';
 
 const EXPERIENCE = [
   {
+    companyName: 'Trend Micro',
+    location: 'Taiwan, Taipei',
+    info: [
+      {
+        title: 'Senior Frontend Developer',
+        during: 'April 2022 - Present',
+        description: [
+          'Developing React applications to visualize security alerts data using D3.js or Pixi.js',
+          'Implementing and integrating new features with upstream data lake and design team',
+          'ontributing to a shared component library based on feature requirements  ',
+          'Making necessary adjustments to Git action CI/CD processes as needed',
+        ],
+      },
+      {
+        title: 'Senior Programmer',
+        during: 'January 2021 - October 2021',
+        description: [
+          'Design and construct the structure of the project easy to maintain and scale',
+          'Using React.js to develop several products related to the eCommerce system',
+          'Using React Native to deploy web projects to mobile',
+          'Implement an app that works with BLE devices using React Native.',
+        ],
+      },
+    ],
+  },
+  {
     companyName: 'Shoalter Technology',
     location: 'Taiwan, Taipei',
     info: [
