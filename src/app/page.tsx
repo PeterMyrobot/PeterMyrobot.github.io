@@ -8,6 +8,7 @@ import { ReactElement, useState } from 'react';
 import MenuContentContainer from './components/MenuContentContainer';
 import AboutMe from './components/AboutMe';
 import WorkExperience from './components/WorkExperience';
+import Menu from './components/Menu';
 
 export default function Home() {
   const [openedMenu, setOpenMenu] = useState(null as any);
@@ -27,19 +28,13 @@ export default function Home() {
     console.log(option);
   };
 
-  const menuOption = ['About Me', 'Work Experience'];
+  const menuOptions = ['About Me', 'Work Experience'];
 
   return (
     <div className="relative flex flex-col bg-black justify-center h-screen items-center  ">
       <StarCanvas />
       <div className="w-full z-10 overflow-scroll no-scrollbar relative ">
-        <div className="absolute justify-around animate-menuOpen overflow-x-hidden z-20">
-          <div className="flex justify-around w-screen ">
-            {menuOption.map((option) => {
-              return <MenuOption key={option} optionLabel={option} onClick={handleMenuClick} />;
-            })}
-          </div>
-        </div>
+        <Menu menuOptions={menuOptions} onMenuOptionClick={handleMenuClick} />
         <div className="h-screen flex flex-col justify-center items-center">
           <div>
             <h1 className="text-2xl sm:text-4xl md:text-6xl text-c2 text-center font-bold bg-bluedark/[.8]">

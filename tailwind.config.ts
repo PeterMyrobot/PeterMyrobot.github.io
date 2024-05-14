@@ -18,7 +18,7 @@ const config: Config = {
     animation: {
       'x-scrolling': 'slider 40s linear infinite',
       menuContentOpen: 'menuContentOpen 0.5s linear',
-      menuOpen: 'menuOpen 2s linear',
+      menuOpen: 'menuOpen 3s linear',
     },
     keyframes: {
       slider: {
